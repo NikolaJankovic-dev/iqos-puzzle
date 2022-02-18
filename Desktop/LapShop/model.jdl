@@ -1,0 +1,131 @@
+
+entity ApplicationUser {
+	loyaltyPoints Double
+    newsletterSubscriber Boolean
+    verificationCode Integer
+}
+entity CallCenter{
+	name String
+}
+entity CallCenterContact{
+	name String
+    phone String
+}
+
+entity Gallery{
+	image String
+}
+entity Shop{
+	name String,
+    address String
+    email String,
+    latitude Double,
+    profileImage String,
+    longitude Double,
+    phoneNumber String,
+    additionalInformation String
+}
+entity LoyaltyStatus{
+	name String
+    minimumPoints Double
+}
+entity WorkTime{
+	name String,
+    openHours Instant,
+    closingHours Instant,
+}
+entity Manufacturer{
+	name String
+}
+entity Item{
+	//Abstract
+    name String
+}
+entity Article{
+	//Fora je da ovo ima cenu, item mozemo da napravimo jedan
+    //a svaka prodavnica da ima drugaciji
+    onlinePrice Double,
+    shopPrice Double,
+    discount Double
+}
+entity ItemMainCategory{
+	name String
+}
+entity ItemComainCategory{
+	name String
+}
+entity Rating{
+	rate Integer,
+    dateRated Instant
+}
+entity WishList{
+	name String
+}
+entity Specification{
+	name String
+}
+entity SpecificationValue{
+	name String
+}
+entity MainCommercial{
+	commercialTimeDuration Double
+}
+entity CommercialTab{
+	image String,
+    title String,
+    active Boolean,
+    description String,
+    dateCreated Instant,
+}
+entity Order{
+	discount Double,
+    totalPrice Double,
+}
+entity Shipment{
+	address String,
+    customerPhoneNumber String,
+    freeDelivery Boolean,
+    customerFirstName String,
+    customerLastName String,
+    city String,
+    cityNumber String,
+    email String,
+}
+entity ShippingCost{
+	bottomPrice Double
+}
+entity PromoCode{
+	discountPrice Double,
+    discountDate Instant
+}
+relationship OneToMany{
+    Item to Specification,
+    Shop to WorkTime,
+    Shop to Gallery,
+    CallCenter to CallCenterContact,
+    ApplicationUser to PromoCode,
+    ApplicationUser to Order,
+    Order to Article
+}
+relationship ManyToOne{
+	Article to WishList,
+    Item to ItemMainCategory,
+    Item to Manufacturer,
+    Shop to CallCenter,
+    Article to CommercialTab,
+    CommercialTab to MainCommercial,
+}
+relationship ManyToMany{
+	Item to ItemComainCategory,
+    Shop to Item,
+    ApplicationUser to LoyaltyStatus
+}
+relationship OneToOne{
+	ApplicationUser to WishList,
+    Article to Item,
+    Article to Rating,
+    Specification to SpecificationValue,
+    PromoCode to Order,
+    Shipment to Order,
+    ApplicationUser{internalUser} to User
+}
