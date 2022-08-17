@@ -133,7 +133,7 @@ export default class Screen3 extends MyScene {
       ref.displayHeight = TILE_SIZE;
 
       this.tweens.add({
-        targets: ref,
+        targets: this.tiles[2].ref,
         alpha: { from: 0, to: 1 },
         ease: "Linear",
         duration: 2000,
