@@ -407,14 +407,14 @@ export default class Screen3 extends MyScene {
 
     await this.initTimer();
     this.tweens.add({
-      targets: this.tiles[0].ref,
+      targets: this.tiles[2].ref,
       alpha: { from: 1, to: 0 },
       ease: "Linear",
       duration: 1000,
       repeat: 0,
       yoyo: false,
       onComplete: async () => {
-        this.tiles[0].ref = null;
+        this.tiles[2].ref = null;
         this.calculateAvailableMoves();
         for (let i = 0; i < NUM_OF_SHUFFLE; i++) {
           await this.shuffle();
