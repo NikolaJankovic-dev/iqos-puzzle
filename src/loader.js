@@ -11,35 +11,28 @@ const tiles = {
 };
 
 const countries = {
-  cro: "Croatia",
-  slo: "Slovenia",
-  srb: "Serbia",
-  bos: "Bosnia",
-  maced: "N.Macedonia",
-  mon: "Montenegro",
+
+
 };
 
 const screen2 = {
-  screen2cro: "screen2cro",
-  screen2bos: "screen2bos",
-  screen2slo: "screen2slo",
-  screen2mon: "screen2mon",
+
   screen2srb: "screen2srb",
-  screen2maced: "screen2maced",
+
 };
 
 const assets = {
   intro: "intro",
   start: "start",
-  logo: "logo",
-  maced: "N.Macedonia",
+
+
   startbtn: "startbtn",
   replaybtn: "replaybtn",
   time: "time",
   tapes: "tapes",
   bg: "bg",
   timerb: "timerb",
-  button: "button",
+
   effect: "effect",
   endbg: "endbg",
   success: "success",
