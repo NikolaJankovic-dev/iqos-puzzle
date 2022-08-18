@@ -113,7 +113,7 @@ export default class Success extends MyScene {
       slo: "IGRAJ PONOVNO",
       bos: "IGRAJ PONOVO",
     };
-    return btnTexts[state.getLang()];
+    return btnTexts["slo"];
   }
 
   getTimeText() {
@@ -125,7 +125,7 @@ export default class Success extends MyScene {
       slo: `Tvoj čas je`,
       bos: `Tvoje vrijeme je`,
     };
-    return texts["cro"];
+    return texts["slo"];
   }
 
   getSubHeading() {
@@ -143,7 +143,7 @@ pijače je sestavljena!`,
       bos: `Slika tvog omiljenog osvježenja
 je složena!`,
     };
-    return texts[state.getLang()];
+    return texts["slo"];
   }
 
   getHeading() {
@@ -161,7 +161,7 @@ in spretnost!`,
       bos: `Bravo za brzinu
 i spretnost!`,
     };
-    return texts[state.getLang()];
+    return texts["slo"];
   }
 
   create() {

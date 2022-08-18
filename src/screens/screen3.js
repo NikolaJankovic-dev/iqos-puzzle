@@ -125,15 +125,15 @@ export default class Screen3 extends MyScene {
       this.deactivateEvents();
 
       state.setTime(this.getMMSSFromSec(this.timer));
-
-      const ref = this.addStr("1")
-        .setX(TILE_SIZE / 2)
+      console.log(this)
+      const ref = this.addStr("3")
+        .setX(TILE_SIZE * 2.5)
         .setY(TILE_SIZE - 50);
       ref.displayWidth = TILE_SIZE;
       ref.displayHeight = TILE_SIZE;
 
       this.tweens.add({
-        targets: this.tiles[2].ref,
+        targets: this.tiles[2],
         alpha: { from: 0, to: 1 },
         ease: "Linear",
         duration: 2000,
@@ -150,7 +150,7 @@ export default class Screen3 extends MyScene {
   }
 
   isSorted(arr) {
-    return arr.slice(1).every((item, i) => arr[i] <= item);
+    return arr.slice(1).every((item, i) => arr[2] <= item);
   }
 
   getNull() {
