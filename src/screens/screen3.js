@@ -115,8 +115,12 @@ export default class Screen3 extends MyScene {
       }
     });
 
+    const forWon = this.tiles.map((el) => (el.ref && el.ref.id) || 0)
+    forWon[0] = 2
+
     const isWon = this.isSorted(
-      this.tiles.map((el) => (el.ref && el.ref.id) || 0)
+      forWon
+
     );
 
     if (this.started && isWon) {
@@ -133,7 +137,7 @@ export default class Screen3 extends MyScene {
       ref.displayHeight = TILE_SIZE;
 
       this.tweens.add({
-        targets: this.tiles[2],
+        targets: ref,
         alpha: { from: 0, to: 1 },
         ease: "Linear",
         duration: 2000,
@@ -150,7 +154,17 @@ export default class Screen3 extends MyScene {
   }
 
   isSorted(arr) {
-    return arr.slice(1).every((item, i) => arr[2] <= item);
+    let should = [2, 1, 0, 3, 4, 5, 6, 7, 8]
+    return arr.slice(1).every((item, i) => {
+      console.log(arr.toString())
+      if (arr.toString() == should.toString()) {
+        console.log("true")
+        return true
+      }
+
+
+
+    });
   }
 
   getNull() {
