@@ -16,6 +16,7 @@ export default class Screen3 extends MyScene {
   }
 
   initStatics() {
+    this.cameras.main.fadeIn(700);
     this.cameras.main.setBackgroundColor("#ffffff");
     this.addCenter("bg");
     this.addCenter("timerb").setY(72).setX(400).setScale(0.5);
@@ -115,13 +116,10 @@ export default class Screen3 extends MyScene {
       }
     });
 
-    const forWon = this.tiles.map((el) => (el.ref && el.ref.id) || 0)
-    forWon[0] = 2
+    const forWon = this.tiles.map((el) => (el.ref && el.ref.id) || 0);
+    forWon[0] = 2;
 
-    const isWon = this.isSorted(
-      forWon
-
-    );
+    const isWon = this.isSorted(forWon);
 
     if (this.started && isWon) {
       this.started = false;
@@ -129,7 +127,7 @@ export default class Screen3 extends MyScene {
       this.deactivateEvents();
 
       state.setTime(this.getMMSSFromSec(this.timer));
-      console.log(this)
+      console.log(this);
       const ref = this.addStr("3")
         .setX(TILE_SIZE * 2.5)
         .setY(TILE_SIZE - 50);
@@ -145,6 +143,7 @@ export default class Screen3 extends MyScene {
         yoyo: false,
         onComplete: () => {
           this.cameras.main.fade(1500);
+
           setTimeout(() => {
             this.scene.start("Success");
           }, 1500);
@@ -154,16 +153,13 @@ export default class Screen3 extends MyScene {
   }
 
   isSorted(arr) {
-    let should = [2, 1, 0, 3, 4, 5, 6, 7, 8]
+    let should = [2, 1, 0, 3, 4, 5, 6, 7, 8];
     return arr.slice(1).every((item, i) => {
-      console.log(arr.toString())
+      console.log(arr.toString());
       if (arr.toString() == should.toString()) {
-        console.log("true")
-        return true
+        console.log("true");
+        return true;
       }
-
-
-
     });
   }
 

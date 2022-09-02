@@ -1,29 +1,28 @@
-import Phaser from "phaser";
-import loader from "../loader";
-import state from "../state";
-import MyScene from "../utils";
+import Phaser from 'phaser';
+import loader from '../loader';
+import state from '../state';
+import MyScene from '../utils';
 
 const HEADING_OFFSET = 400;
 const TOP_PADDING = 50;
 
 export default class End extends MyScene {
   constructor() {
-    super("End");
+    super('End');
   }
 
   initStatics() {
-    this.addCenter("endbg").setScale(state.defaultScale);
-
+    this.addCenter('endbg').setScale(state.defaultScale);
+    this.cameras.main.fadeIn(1500);
     this.add
-      .image(
-        this.cameras.main.centerX,
-        this.cameras.main.height - 245,
-        loader.assets.replaybtn
-      )
+      .image(this.cameras.main.centerX, this.cameras.main.height - 245, loader.assets.replaybtn)
       .setScale(state.defaultScale)
       .setInteractive()
-      .on("pointerdown", () => {
-        this.scene.start("Screen2");
+      .on('pointerdown', () => {
+        this.cameras.main.fade(700);
+        setTimeout(() => {
+          this.scene.start('Intro');
+        }, 700);
       });
 
     // this.add
@@ -76,12 +75,12 @@ export default class End extends MyScene {
 
   getBtnText() {
     const btnTexts = {
-      maced: "ИГРАЈ ПОВТОРНО",
-      cro: "IGRAJ PONOVO",
-      srb: "IGRAJ PONOVO",
-      mon: "IGRAJ PONOVO",
-      slo: "IGRAJ PONOVNO",
-      bos: "IGRAJ PONOVO",
+      maced: 'ИГРАЈ ПОВТОРНО',
+      cro: 'IGRAJ PONOVO',
+      srb: 'IGRAJ PONOVO',
+      mon: 'IGRAJ PONOVO',
+      slo: 'IGRAJ PONOVNO',
+      bos: 'IGRAJ PONOVO',
     };
     return btnTexts[state.getLang()];
   }

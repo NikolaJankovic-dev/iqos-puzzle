@@ -13,29 +13,17 @@ export default class Success extends MyScene {
 
   initStatics() {
     this.addCenter("success").setScale(state.defaultScale);
-
+    this.cameras.main.fadeIn(1500);
     this.add
       .image(
         this.cameras.main.centerX,
-        this.cameras.main.height - 475,
+        this.cameras.main.height - 527.5,
         loader.assets.points
       )
       .setScale(0.75)
       .setInteractive()
       .on("pointerdown", () => {
-        window.top.location.href = "http://hr.pmiopen.com/s/slagalica-poeni";
-      });
-
-    this.add
-      .image(
-        this.cameras.main.centerX,
-        this.cameras.main.height - 150,
-        loader.assets.replaybtn
-      )
-      .setScale(0.65)
-      .setInteractive()
-      .on("pointerdown", () => {
-        this.scene.start("Screen2");
+        window.top.location.href = "http://www.pmiopen.si/s/5-years-points";
       });
 
     // this.add
@@ -83,7 +71,7 @@ export default class Success extends MyScene {
 
     this.timeText = this.add.text(
       this.cameras.main.centerX,
-      this.cameras.main.height - 275,
+      this.cameras.main.height - 175,
       `${this.getTimeText()}: ${state.getTime() || 0} s.`,
       {
         fontFamily: "Arial",
@@ -122,7 +110,7 @@ export default class Success extends MyScene {
       cro: `Tvoje vrijeme je`,
       srb: `Tvoje vreme je`,
       mon: `Tvoje vrijeme je`,
-      slo: `Tvoj čas je`,
+      slo: `Vaš čas je`,
       bos: `Tvoje vrijeme je`,
     };
     return texts["slo"];

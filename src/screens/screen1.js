@@ -10,8 +10,7 @@ export default class Screen1 extends MyScene {
     }
 
     initScene() {
-        const bg = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, loader.assets.start);
-        bg.setOrigin(0.5, 0.5).setScale(state.defaultScale);
+        this.addCenter("intro").setScale(state.defaultScale);
     }
 
     initButtons() {
